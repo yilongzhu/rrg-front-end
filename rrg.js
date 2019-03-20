@@ -41,13 +41,12 @@ function getPrice() {
 }
 
 function getRestaurant(lat, lng, rad, price) {
-    $.post( "http://localhost:8080/api/random", { lat: lat, lng: lng, rad: rad, minPrice: price }, function( data ) {
-        console.log( data );
+    var apiURL = "https://localhost:8080/api/random";
+    $.post(apiURL , { lat: lat, lng: lng, rad: rad, minPrice: price }, function( data ) {
         var nm = document.getElementById("name");
         var addr = document.getElementById("address");
-        var mapslink = "https://www.google.com/maps/dir/?api=1&destination=" + data.lat + "," + data.lng + "&destination_place_id=" + data.place_id;
-        console.log(mapslink);
-        document.getElementById("directions").href = mapslink;
+        var mapsLink = "https://www.google.com/maps/dir/?api=1&destination=" + data.lat + "," + data.lng + "&destination_place_id=" + data.place_id;
+        document.getElementById("directions").href = mapsLink;
         nm.innerHTML = data.name;
         addr.innerHTML = data.formatted_address;
     }, "json");
