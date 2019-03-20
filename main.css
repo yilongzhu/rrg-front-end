@@ -1,0 +1,84 @@
+html {
+    color: #404040;
+    font-family: Helvetica, arial, sans-serif;
+    line-height: 1.4;
+}
+
+body {
+    margin: 0;
+    text-align: center;
+}
+
+h1 {
+    font-size: 3em;
+    line-height: 1;
+}
+
+nav img {
+    height: 2.8rem;
+}
+
+main {
+    margin: auto;
+    width: 45%;
+}
+
+button {
+    background: white;
+    width: 100%;
+    margin-top: 1rem;
+    padding: .6em;
+    font-size: 1.6em;
+    color: #404040;
+    border: 3px solid #404040;
+    border-radius: .5em;
+    transition-duration: .3s;
+}
+
+button:hover {
+    background-color: #404040;
+    color: white;
+    cursor: pointer;
+}
+
+div#options {
+    display: flex;
+    justify-content: space-between;
+}
+
+fieldset {
+    width: 44%;
+}
+
+div.buttons {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+legend {
+    font-size: 1.4em;
+}
+
+fieldset#price label {
+    color: #216c2a;
+    font-weight: 600;
+}
+
+@media only screen and (max-width: 600px) {
+    main {
+        width: 93%;
+    }
+
+    h1 {
+        font-size: 2.2em;
+    }
+
+    div#options {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    fieldset {
+        width: 100%;
+    }
+}
