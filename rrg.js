@@ -2,7 +2,7 @@ var lat;
 var lng;
 
 function getLocation() {
-    var output = document.getElementById("address");
+    var output = document.getElementById("name");
 
     if (!navigator.geolocation){
         output.innerHTML = "Geolocation is not supported by your browser.";
@@ -27,8 +27,8 @@ function getLocation() {
 
 function onSuccess(lat, lng) {
     rad = getRadius();
-    price = getPrice();
-    getRestaurant(lat, lng, rad, price);
+    // price = getPrice();
+    getRestaurant(lat, lng, rad);
 }
 
 function getRadius() {
@@ -40,14 +40,26 @@ function getPrice() {
     return parseInt(document.querySelector('input[name="price"]:checked').value);
 }
 
-function getRestaurant(lat, lng, rad, price) {
-    var apiURL = "https://localhost:8080/api/random";
-    $.post(apiURL , { lat: lat, lng: lng, rad: rad, minPrice: price }, function( data ) {
+function parseAddress(addressArray) {
+    var address = "";
+    for (var i = 0; i < 4; i++) {
+        if (addressArray[i] != null && addressArray[i] != "")
+            address += addressArray[i] + ", ";
+    }
+    address += addressArray[5] + " " + addressArray[4];
+    return address;
+}
+
+function getRestaurant(lat, lng, rad) {
+    var apiURL = "http://localhost:8443/rrg";
+    $.get(apiURL , { latitude: lat, longitude: lng, radius: parseInt(rad) }, function( data ) {
         var nm = document.getElementById("name");
         var addr = document.getElementById("address");
-        var mapsLink = "https://www.google.com/maps/dir/?api=1&destination=" + data.lat + "," + data.lng + "&destination_place_id=" + data.place_id;
+        var address = parseAddress(data.address);
+        var mapsLink = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(address);
         document.getElementById("directions").href = mapsLink;
+        // console.log(data);
         nm.innerHTML = data.name;
-        addr.innerHTML = data.formatted_address;
+        addr.innerHTML = address;
     }, "json");
 }
