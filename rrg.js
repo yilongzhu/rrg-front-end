@@ -1,8 +1,5 @@
 var lat;
 var lng;
-var nm;
-var addr;
-var dir;
 $(document).ready(function() {
     nm = document.getElementById("name");
     addr = document.getElementById("address");
@@ -10,7 +7,6 @@ $(document).ready(function() {
 });
 
 function getLocation() {
-    var t0 = performance.now();
     var output = document.getElementById("name");
 
     if (!navigator.geolocation){
@@ -32,12 +28,11 @@ function getLocation() {
     else {
         onSuccess(lat, lng);
     }
-    console.log((performance.now()-t0) + "ms");
 }
 
 function onSuccess(lat, lng) {
     rad = getRadius();
-    // price = getPrice();
+    price = getPrice();
     getRestaurant(lat, lng, rad);
 }
 
@@ -60,13 +55,15 @@ function parseAddress(addressArray) {
     return address;
 }
 
+var apiURL = "https://yilongzhu.com:8443/rrg";
+var nm;
+var addr;
+var dir;
 function getRestaurant(lat, lng, rad) {
-    var apiURL = "https://yilongzhu.com:8443/rrg";
     $.get(apiURL , { latitude: lat, longitude: lng, radius: parseInt(rad) }, function( data ) {
         var address = parseAddress(data.address);
         var mapsLink = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(address);
-        // dir.href = mapsLink;
-        // console.log(data);
+        dir.href = mapsLink;
         nm.innerHTML = data.name;
         addr.innerHTML = address;
     }, "json");
