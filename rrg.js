@@ -1,10 +1,5 @@
 var lat;
 var lng;
-$(document).ready(function() {
-    nm = document.getElementById("name");
-    addr = document.getElementById("address");
-    dir = document.getElementById("directions");
-});
 
 function getLocation() {
     var output = document.getElementById("name");
@@ -33,16 +28,25 @@ function getLocation() {
 function onSuccess(lat, lng) {
     rad = getRadius();
     price = getPrice();
-    getRestaurant(lat, lng, rad);
+    console.log(price);
+    getRestaurant(lat, lng, rad, price);
 }
 
-function getRadius() {
-    var rad = parseInt(document.querySelector('input[name="rad"]:checked').value);
-    return rad / 0.00062137;
+function getRadius() {;
+    return parseInt(slider.noUiSlider.get() / 0.00062137);
 }
 
 function getPrice() {
-    return parseInt(document.querySelector('input[name="price"]:checked').value);
+    if (anyCheckbox.checked == true)
+        return "1,2,3,4"
+
+    var checkedBoxes = document.querySelectorAll('input[name="price"]:checked');
+    var priceString = "";
+    checkedBoxes.forEach(function(cb) {
+        priceString += cb.value + ",";
+    });
+
+    return priceString.substring(0, priceString.length-1);
 }
 
 function parseAddress(addressArray) {
@@ -59,12 +63,21 @@ var apiURL = "https://yilongzhu.com:8443/rrg";
 var nm;
 var addr;
 var dir;
-function getRestaurant(lat, lng, rad) {
-    $.get(apiURL , { latitude: lat, longitude: lng, radius: parseInt(rad) }, function( data ) {
+var img;
+$(document).ready(function() {
+    nm = document.getElementById("name");
+    addr = document.getElementById("address");
+    dir = document.getElementById("directions");
+    img = document.getElementById("place")
+});
+function getRestaurant(lat, lng, rad, price) {
+    $.get(apiURL , { latitude: lat, longitude: lng, radius: rad, price: price }, function( data ) {
         var address = parseAddress(data.address);
         var mapsLink = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(address);
-        dir.href = mapsLink;
+        console.log(data);
+        img.style.backgroundImage = "url(" + data.image_url + ")";
         nm.innerHTML = data.name;
         addr.innerHTML = address;
+        dir.href = mapsLink;
     }, "json");
 }

@@ -1,3 +1,7 @@
+html, body, #container {
+    height: 100%;
+}
+
 html {
     color: #404040;
     font-family: Helvetica, arial, sans-serif;
@@ -9,36 +13,58 @@ body {
     text-align: center;
 }
 
+#container {
+    margin: auto;
+    width: 37%;
+    height: 100%;
+}
+
 h1 {
+    margin: .5em;
     font-size: 3em;
     line-height: 1;
 }
 
 nav img {
     height: 2.8rem;
+    margin: 0 .5rem 1rem .5rem;
 }
 
 main {
-    margin: auto;
-    width: 37%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50%;
 }
 
-button {
-    background: white;
-    width: 100%;
-    margin-top: 1rem;
-    padding: .6em;
-    font-size: 1.6em;
-    color: #404040;
-    border: 3px solid #404040;
-    border-radius: .5em;
-    transition-duration: .3s;
+div#place {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    height: 100%;
 }
 
-button:hover {
-    background-color: #404040;
-    color: white;
-    cursor: pointer;
+div#details {
+    background: rgba(0, 0, 0, .5);
+    padding: .5rem 0;
+}
+
+div#details h2 {
+    margin: 0;
+    color: #ffffff;
+}
+
+div#details h3 {
+    margin: 0;
+    color: #eeeeee;
+    font-weight: 100;
+}
+
+div#details a {
+    text-decoration: underline;
+    text-decoration-color: #eeeeee;
 }
 
 div#distance {
@@ -50,6 +76,10 @@ div.buttons {
     justify-content: space-between;
 }
 
+div#price h4 {
+    margin: 1.8rem 0 .5rem 0;
+}
+
 div#price input {
     display: none;
 }
@@ -57,12 +87,12 @@ div#price input {
 div#price label {
     display: inline-block;
     width: 18%;
-    height: 50px;
+    height: 2.8rem;
     color: #a0a0a0;
     text-align: center;
     border: 2px solid #a0a0a0;
-    border-radius: 10%;
-    line-height: 50px;
+    border-radius: .5rem;
+    line-height: 2.8rem;
     cursor: pointer
   }
   
@@ -76,13 +106,35 @@ div#price label {
     font-weight: 600;
 }
 
+button {
+    background: #ffffff;
+    width: 100%;
+    margin-top: 1rem;
+    padding: .6em;
+    font-size: 1.6em;
+    color: #404040;
+    border: 3px solid #404040;
+    border-radius: .5em;
+    transition-duration: .3s;
+}
+
+button:hover {
+    background-color: #404040;
+    color: #ffffff;
+    cursor: pointer;
+}
+
 @media only screen and (max-width: 600px) {
-    main {
+    #container {
         width: 90%;
     }
 
     h1 {
         font-size: 2.2em;
+    }
+
+    main {
+        height: 75%;
     }
 
     div#options {

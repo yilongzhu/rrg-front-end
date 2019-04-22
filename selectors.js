@@ -33,7 +33,7 @@ function isEmpty() {
     priceCheckboxes.forEach(function(cb) {
         if (cb.checked == true)
             empty = false;
-    })
+    });
 
     return empty;
 }
@@ -42,5 +42,5 @@ function uncheckPrices() {
     priceCheckboxes.forEach(function(cb) {
         if (cb != anyCheckbox)
             cb.checked = false;
-    })
+    });
 }

@@ -15,6 +15,7 @@
 </head>
 
 <body>
+    <div id="container">
     <header>
         <h1>QuickBites!</h1>
         <nav>
@@ -22,16 +23,20 @@
             <a href="#"><img id="app-badge" src="images/apple_store.png"></a>
         </nav>
     </header>
-    <main id="container">
-        <h2 id="name"></h2>
-        <a id="directions" href="#" target="_blank"><h3 id="address"></h3></a>
-        <div>
+    <main>
+        <div id="place">
+            <div id="details">
+                <h2 id="name">Make your dinner plans with us.</h2>
+                <a id="directions" href="#" target="_blank"><h3 id="address">QuickBites! -- the leading random restaurant generator.</h3></a>
+            </div>
+        </div>
+        <div id="form">
             <div id="distance" class="selector">
-                <h3>Distance (in miles):</h3>
+                <h4>Distance (in miles):</h4>
                 <div id="slider"></div>
             </div>
             <div id="price" class="selector">
-                <h3>Price:</h3>
+                <h4>Price:</h4>
                 <div class="buttons">
                     <input type="checkbox" name="price" id="price-any" value="-1" checked>
                     <label for="price-any">Any</label>
@@ -45,9 +50,10 @@
                     <label for="price-4">$$$$</label>
                 </div>
             </div>
+            <button onclick="getLocation()">Generate a Random Restaurant</button>
         </div>
-        <button onclick="getLocation()">Generate a Random Restaurant</button>
     </main>
+    </div>
     <script src="selectors.js"></script>
 </body>
 </html>
