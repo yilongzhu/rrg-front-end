@@ -11,6 +11,7 @@ html {
 body {
     margin: 0;
     text-align: center;
+    width: 100%;
 }
 
 #container {
@@ -126,15 +127,29 @@ button:hover {
 
 @media only screen and (max-width: 600px) {
     #container {
-        width: 90%;
+        width: 100%;
     }
 
     h1 {
         font-size: 2.2em;
     }
 
+    nav img {
+        height: 2.8rem;
+        margin: 0;
+    }
+
     main {
         height: 75%;
+    }
+
+    div#place {
+        height: 64%;
+    }
+
+    div#form {
+        width: 90%;
+        margin: 0 auto;
     }
 
     div#options {
