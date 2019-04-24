@@ -1,5 +1,6 @@
 var range = 5;
 $("#distance input").ionRangeSlider({
+    skin: 'round',
     min: 1,
     max: 15,
     from: 5,

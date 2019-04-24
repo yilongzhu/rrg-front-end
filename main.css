@@ -96,6 +96,10 @@ div#details a {
     text-decoration-color: #eeeeee;
 }
 
+div#form h4 {
+    margin: 1rem 0 .5rem 0;
+}
+
 div#distance input {
     display: none;
 }
