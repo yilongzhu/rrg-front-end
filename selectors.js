@@ -7,6 +7,7 @@ $("#distance input").ionRangeSlider({
     step: 1,
     grid: true,
     grid_num: 7,
+    force_edges: true,
     postfix: ' mile(s)',
     onChange: function (data) {
         range = data['from'];
