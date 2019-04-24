@@ -6,6 +6,7 @@ html {
     color: #404040;
     font-family: Helvetica, arial, sans-serif;
     line-height: 1.4;
+    background: #fffefb;
 }
 
 body {
@@ -14,10 +15,12 @@ body {
     width: 100%;
 }
 
-#container {
+.centered {
     margin: auto;
-    width: 37%;
-    height: 100%;
+}
+
+#container {
+    width: 50%;
 }
 
 h1 {
@@ -46,6 +49,7 @@ div#place {
     background-image: url('images/background.jpg');
     background-size: cover;
     height: 100%;
+    width: 100%;
 }
 
 div#details {
@@ -88,14 +92,14 @@ div#price input {
   
 div#price label {
     display: inline-block;
-    width: 18%;
+    width: 20%;
     height: 2.8rem;
     color: #a0a0a0;
     text-align: center;
     border: 2px solid #a0a0a0;
-    border-radius: .5rem;
+    /* border-radius: .5rem; */
     line-height: 2.8rem;
-    cursor: pointer
+    cursor: pointer;
   }
   
 div#price input:checked + label{
