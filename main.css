@@ -55,8 +55,6 @@ nav a {
 }
 
 nav img {
-    /* padding: 0;
-    margin: 0; */
     height: 100%;
 }
 
@@ -98,17 +96,13 @@ div#details a {
     text-decoration-color: #eeeeee;
 }
 
-div#distance {
-    padding-bottom: 1.4em;
+div#distance input {
+    display: none;
 }
 
 div.buttons {
     display: flex;
     justify-content: space-between;
-}
-
-div#price h4 {
-    margin: 1.8rem 0 .5rem 0;
 }
 
 div#price input {

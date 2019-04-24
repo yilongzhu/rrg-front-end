@@ -32,7 +32,7 @@ function onSuccess(lat, lng) {
 }
 
 function getRadius() {;
-    return parseInt(slider.noUiSlider.get() / 0.00062137);
+    return parseInt(range / 0.00062137);
 }
 
 function getPrice() {

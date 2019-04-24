@@ -1,16 +1,15 @@
-var slider = document.getElementById('slider');
-
-noUiSlider.create(slider, {
-    start: [5],
-    tooltips: wNumb({decimals: 0}),
-    pips: {
-        mode: 'values',
-        values: [1, 5, 10, 15],
-        density: 7
-    },
-    range: {
-        'min': [1, 1],
-        'max': [15]
+var range = 5;
+$("#distance input").ionRangeSlider({
+    min: 1,
+    max: 15,
+    from: 5,
+    step: 1,
+    grid: true,
+    grid_num: 7,
+    postfix: ' mile(s)',
+    onChange: function (data) {
+        range = data['from'];
+        console.log(range);
     }
 });
 
