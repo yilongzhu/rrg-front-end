@@ -28,7 +28,6 @@ function getLocation() {
 function onSuccess(lat, lng) {
     rad = getRadius();
     price = getPrice();
-    console.log(price);
     getRestaurant(lat, lng, rad, price);
 }
 
@@ -74,7 +73,7 @@ function getRestaurant(lat, lng, rad, price) {
     $.get(apiURL , { latitude: lat, longitude: lng, radius: rad, price: price }, function( data ) {
         var address = parseAddress(data.address);
         var mapsLink = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(address);
-        console.log(data);
+        // console.log(data);
         img.style.backgroundImage = "url(" + data.image_url + ")";
         nm.innerHTML = data.name;
         addr.innerHTML = address;

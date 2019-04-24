@@ -15,15 +15,16 @@
 </head>
 
 <body>
-    <div id="container" class="centered">
     <header>
+        <div class="container centered">
         <h1>QuickBites!</h1>
-        <!-- <nav>
-            <a href="#"><img id="play-badge" src="images/play_store.png"></a>
+        <nav>
             <a href="#"><img id="app-badge" src="images/apple_store.png"></a>
-        </nav> -->
+            <a href="#"><img id="play-badge" src="images/play_store.png"></a>
+        </nav>
+        </div>
     </header>
-    <main>
+    <main class="container centered">
         <div id="place" class="centered">
             <div id="details">
                 <h2 id="name">Make your dinner plans with us.</h2>
@@ -53,7 +54,6 @@
             <button onclick="getLocation()">Generate a Random Restaurant</button>
         </div>
     </main>
-    </div>
     <script src="selectors.js"></script>
 </body>
 </html>
