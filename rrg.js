@@ -28,6 +28,7 @@ function getLocation() {
 function onSuccess(lat, lng) {
     rad = getRadius();
     price = getPrice();
+    console.log(price);
     getRestaurant(lat, lng, rad, price);
 }
 
@@ -40,7 +41,7 @@ function getPrice() {
         return "1,2,3,4";
 
     return $("input[name=price]:checked").map(
-        () => {return this.value;}).get().join(",");
+        function() {return this.value;}).get().join(",");
 }
 
 var apiURL = "https://yilongzhu.com:8443/rrg";
