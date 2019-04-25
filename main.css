@@ -80,10 +80,10 @@ div#place {
 
 div#details {
     background: rgba(0, 0, 0, .5);
-    padding: .5rem 0;
+    padding: .8rem 0 .4rem 0;
 }
 
-div#details * {
+div#details h2, div#details h3 {
     margin: 0 auto;
     width: 98%;
 }
@@ -93,21 +93,58 @@ div#details h2 {
 }
 
 div#details h3 {
-    color: #eeeeee;
     font-weight: 100;
 }
 
 div#details a {
+    color: #e9e9e9;
     text-decoration: underline;
-    text-decoration-color: #eeeeee;
+    text-decoration-color: #ffffff;
+}
+
+div#details a:hover {
+    text-decoration: underline;
+    color: #ffffff;
+    text-decoration-color: #ffffff;
+}
+
+div#details a#yelp-url {
+    text-decoration: none;
+}
+
+div#details #yelp {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+div#rating {
+    margin: 0 1rem;
+}
+
+div#rating span {
+    display: inline;
+    color: #eeeeee;
+    font-size: 1em;
+    padding: 0 .4rem;
+    position: relative;
+    top: 2px;
+}
+
+div#rating img {
+    vertical-align: middle;
+}
+
+div#details #yelp-logo {
+    height: 4rem;
 }
 
 div#form {
     width: 70%;
 }
 
-#distance, #price, button {
-    margin: .6rem 0 0 0;
+#distance, #price {
+    margin: .8rem 0 0 0;
 }
 
 div#form h4 {
@@ -157,9 +194,9 @@ div#price input:checked + label{
 
 button {
     background: #ffffff;
-    width: 100%;
-    margin-top: .8rem;
-    padding: .8rem;
+    width: 85%;
+    margin: 1.2rem auto 0 auto;
+    padding: 1rem;
     font-size: 1.6em;
     color: #404040;
     border: 3px solid #404040;
@@ -214,8 +251,8 @@ footer a {
         flex: 1;
     }
 
-    div#place {
-        height: 64%;
+    div#details #yelp {
+        justify-content: space-between;
     }
 
     #distance, #price, button {
@@ -232,8 +269,9 @@ footer a {
     }
 
     button {
-        margin-bottom: .4rem;
+        margin: .4rem auto;
         padding: .6rem;
+        width: 90%;
     }
 
     footer {
