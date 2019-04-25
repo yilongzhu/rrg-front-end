@@ -9,16 +9,13 @@ $("#distance input").ionRangeSlider({
     grid_num: 7,
     force_edges: true,
     postfix: ' mile(s)',
-    onChange: function (data) {
-        range = data['from'];
-        console.log(range);
-    }
+    onChange: data => {range = data['from'];}
 });
 
 var priceCheckboxes = document.getElementById('price').querySelectorAll('input');
 var anyCheckbox = document.getElementById('price-any');
-priceCheckboxes.forEach(function(cb) {
-    cb.addEventListener('click', function() {
+priceCheckboxes.forEach(cb => {
+    cb.addEventListener('click', () => {
         if (isEmpty()) {
             anyCheckbox.checked = true;
         } else if (cb != anyCheckbox && cb.checked == true) {
@@ -31,7 +28,7 @@ priceCheckboxes.forEach(function(cb) {
 
 function isEmpty() {
     var empty = true;
-    priceCheckboxes.forEach(function(cb) {
+    priceCheckboxes.forEach(cb => {
         if (cb.checked == true)
             empty = false;
     });
@@ -40,7 +37,7 @@ function isEmpty() {
 }
 
 function uncheckPrices() {
-    priceCheckboxes.forEach(function(cb) {
+    priceCheckboxes.forEach(cb => {
         if (cb != anyCheckbox)
             cb.checked = false;
     });
