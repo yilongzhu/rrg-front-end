@@ -10,13 +10,15 @@ html {
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     margin: 0;
     text-align: center;
     width: 100%;
 }
 
 .centered {
-    margin: auto;
+    margin: 0 auto;
 }
 
 .container {
@@ -59,21 +61,21 @@ nav img {
 }
 
 main {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: 70%;
 }
 
 div#place {
+    flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: space-around;
     background-image: url('images/background.jpg');
     background-size: cover;
-    height: 100%;
     width: 100%;
-    margin: 0 0 1rem 0;
+    margin: 0;
 }
 
 div#details {
@@ -81,13 +83,16 @@ div#details {
     padding: .5rem 0;
 }
 
+div#details * {
+    margin: 0 auto;
+    width: 98%;
+}
+
 div#details h2 {
-    margin: 0;
     color: #ffffff;
 }
 
 div#details h3 {
-    margin: 0;
     color: #eeeeee;
     font-weight: 100;
 }
@@ -101,10 +106,14 @@ div#form {
     width: 70%;
 }
 
+#distance, #price, button {
+    margin: .6rem 0 0 0;
+}
+
 div#form h4 {
     font-size: 1.2em;
     text-align: left;
-    margin: .5rem 0 .2rem 0;
+    margin: 0;
 }
 
 div#distance input {
@@ -133,12 +142,12 @@ div#price label {
 }
 
 div#price label:first-of-type {
-    border-radius: .5rem 0 0 .5rem;
+    border-radius: .4rem 0 0 .4rem;
 }
 
 div#price label:last-of-type {
     border-right: 2px solid #45ac51;
-    border-radius: 0 .5rem .5rem 0;
+    border-radius: 0 .4rem .4rem 0;
 }
   
 div#price input:checked + label{
@@ -149,12 +158,12 @@ div#price input:checked + label{
 button {
     background: #ffffff;
     width: 100%;
-    margin-top: 2rem;
-    padding: .6em;
+    margin-top: .8rem;
+    padding: .8rem;
     font-size: 1.6em;
     color: #404040;
     border: 3px solid #404040;
-    border-radius: .5em;
+    border-radius: .6em;
     transition-duration: .3s;
 }
 
@@ -162,6 +171,19 @@ button:hover {
     background-color: #404040;
     color: #ffffff;
     cursor: pointer;
+}
+
+footer {
+    padding: .4rem 0;
+    font-size: .6em;
+}
+
+footer p {
+    margin: 0;
+}
+
+footer a {
+    color: #404040;
 }
 
 @media only screen and (max-width: 600px) {
@@ -189,7 +211,7 @@ button:hover {
     }
 
     main {
-        height: 75%;
+        flex: 1;
     }
 
     div#place {
@@ -206,7 +228,17 @@ button:hover {
     }
 
     button {
+        margin-bottom: .6rem;
+        padding: .6rem;
+    }
+
+    footer {
+        background: #1d1d1d;
         color: #ffffff;
-        background-color: #404040;
+        padding: .3rem 0 .3rem 0;
+    }
+
+    footer a {
+        color: #ffffff;
     }
 }

@@ -17,8 +17,8 @@
         <div class="container centered">
         <h1>QuickBites!</h1>
         <nav>
-            <a href="#"><img id="app-badge" src="images/apple_store.png"></a>
-            <a href="#"><img id="play-badge" src="images/play_store.png"></a>
+            <a href="#"><img id="app-badge" src="images/apple_store.png" target="_blank"></a>
+            <a href="#"><img id="play-badge" src="images/play_store.png" target="_blank"></a>
         </nav>
         </div>
     </header>
@@ -26,7 +26,7 @@
         <div id="place" class="centered">
             <div id="details">
                 <h2 id="name">Make your dinner plans with us.</h2>
-                <a id="directions" href="#" target="_blank"><h3 id="address">QuickBites! -- the leading random restaurant generator.</h3></a>
+                <a id="directions" target="_blank"><h3 id="address">QuickBites! -- the leading random restaurant generator.</h3></a>
             </div>
         </div>
         <div id="form" class="centered">
@@ -52,6 +52,9 @@
             <button onclick="getLocation()">Generate a Random Restaurant</button>
         </div>
     </main>
+    <footer class="container centered">
+        <p>Copyright © 2019 <a href="https://yilongzhu.com/" target="_blank">Yilong Zhu</a>. All rights reserved.</p>
+    </footer>
     <script src="rrg.js"></script>
     <script src="selectors.js"></script>
 </body>

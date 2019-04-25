@@ -51,7 +51,7 @@ var img = document.getElementById("place")
 
 function getRestaurant(lat, lng, rad, price) {
     $.get(apiURL , {latitude: lat, longitude: lng, radius: rad, price: price}, data => {
-        var address = data.address.join(', ');
+        var address = data.address.join(", ");
         var mapsLink = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(address);
         img.style.backgroundImage = "url(" + data.image_url + ")";
         nm.innerHTML = data.name;
