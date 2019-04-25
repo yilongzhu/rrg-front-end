@@ -4,7 +4,7 @@ var lng;
 function getLocation() {
     var output = document.getElementById("name");
 
-    if (!navigator.geolocation){
+    if (!navigator.geolocation) {
         output.innerHTML = "Geolocation is not supported by your browser.";
         return;
     }
@@ -28,7 +28,6 @@ function getLocation() {
 function onSuccess(lat, lng) {
     rad = getRadius();
     price = getPrice();
-    console.log(price);
     getRestaurant(lat, lng, rad, price);
 }
 
@@ -75,20 +74,38 @@ var addr = document.getElementById("address");
 var dir = document.getElementById("directions");
 var place = document.getElementById("place");
 var url = document.getElementById("yelp-url");
-var ratingImg = document.getElementById("rating").getElementsByTagName("img")[0];
+var rating = document.getElementById("rating");
+var ratingImg = rating.getElementsByTagName("img")[0];
 var reviews = document.getElementById("rating").getElementsByTagName("span")[0];
 
 
 function getRestaurant(lat, lng, rad, price) {
     $.get(apiURL , {latitude: lat, longitude: lng, radius: rad, price: price}, data => {
+        if (data.status == "OK")
+            onOK(data);
+        else if (data.status == "ZERO_RESULTS")
+            onZERORESULTS(data);
+    }, "json");
+
+    function onOK(data) {
         var address = data.address.join(", ");
         var mapsLink = "https://www.google.com/maps/dir/?api=1&destination=" + encodeURIComponent(address);
         place.style.backgroundImage = "url(" + data.image_url + ")";
-        nm.innerHTML = data.name;
+        nm.innerHTML = data.name + " &#9679; " + data.price;
         addr.innerHTML = address;
         dir.href = mapsLink;
+        rating.style.display = "block";
         ratingImg.src = getRating(data.rating);
         reviews.innerHTML = data.review_count + " Reviews";
         url.href = data.url;
-    }, "json");
+    }
+
+    function onZERORESULTS(data) {
+        nm.innerHTML = "No restaurants found.";
+        addr.innerHTML = "There are currently no open restaurants with the following criteria."
+        dir.removeAttribute("href");
+        rating.style.display = "none";
+        reviews.innerHTML = "";
+        url.href = "https://www.yelp.com/";
+    }
 }

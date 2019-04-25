@@ -119,6 +119,7 @@ div#details #yelp {
 }
 
 div#rating {
+    display: none;
     margin: 0 1rem;
 }
 
@@ -253,6 +254,14 @@ footer a {
 
     div#details #yelp {
         justify-content: space-between;
+    }
+
+    div#details #yelp-logo {
+        margin-left: auto;
+    }
+
+    div#rating span {
+        top: 1px;
     }
 
     #distance, #price, button {
