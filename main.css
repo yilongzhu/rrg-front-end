@@ -278,18 +278,12 @@ footer a {
     }
 
     button {
-        margin: .4rem auto;
+        margin: .8rem auto .4rem auto;
         padding: .6rem;
         width: 90%;
     }
 
     footer {
-        background: #1d1d1d;
-        color: #ffffff;
         padding: .3rem 0 .3rem 0;
-    }
-
-    footer a {
-        color: #ffffff;
     }
 }
